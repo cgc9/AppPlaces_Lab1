@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/notificaciones"
+        >
+
+        <SwitchPreferenceCompat
+            android:key="notificar"
+            android:summary="@string/activarNotificaciones"/>
+
+        <SwitchPreferenceCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:key="sound"
+            android:summary="@string/activarSonidoNotificaciones" />
+
+</PreferenceCategory>
+</PreferenceScreen>

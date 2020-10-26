@@ -1,0 +1,2 @@
+include ':Lab1Activities'
+rootProject.name = "LabsCM20201"

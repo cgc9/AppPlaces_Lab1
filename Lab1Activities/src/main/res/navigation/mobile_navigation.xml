@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/recyclerViewFragment">
+
+    <fragment
+        android:id="@+id/recyclerViewFragment"
+        android:name="co.edu.udea.compumovil.gr08_20201.lab1.Fragments.RecyclerViewFragment"
+        android:label="Lugares Turísticos"
+        tools:layout="@layout/fragment_recycler_view" >
+        <action
+            android:id="@+id/action_recyclerViewFragment_to_addPlaceFragment"
+            app:destination="@id/addPlaceFragment" />
+        <action
+            android:id="@+id/action_recyclerViewFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addPlaceFragment"
+        android:name="co.edu.udea.compumovil.gr08_20201.lab1.Fragments.AddPlaceFragment"
+        android:label="Agregar un nuevo lugar"
+        tools:layout="@layout/fragment_add_place" >
+        <action
+            android:id="@+id/action_addPlaceFragment_to_recyclerViewFragment"
+            app:destination="@id/recyclerViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="co.edu.udea.compumovil.gr08_20201.lab1.Fragments.DetailFragment"
+        android:label="Detalles"
+        tools:layout="@layout/fragment_detail" >
+        <action
+            android:id="@+id/action_detailFragment_to_recyclerViewFragment"
+            app:destination="@id/recyclerViewFragment" />
+        <argument
+            android:name="currentPlace"
+            app:argType="co.edu.udea.compumovil.gr08_20201.lab1.Entities.POI" />
+    </fragment>
+</navigation>
