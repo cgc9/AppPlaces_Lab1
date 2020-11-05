@@ -12,8 +12,8 @@ class POIRepository(private val pointDao: POIDao) {
         pointDao.addPoint(point)
     }
 
-    suspend fun deleteById(id:Int){
-        pointDao.deleteById(id)
+    suspend fun deletePlace(point: POI){
+        pointDao.deletePlace(point)
     }
 
     suspend fun update(point: POI){

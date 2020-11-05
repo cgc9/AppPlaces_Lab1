@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.getDrawable
@@ -16,21 +17,35 @@ import kotlinx.android.synthetic.main.card_view.view.*
 import kotlinx.android.synthetic.main.card_view.view.image
 import kotlinx.android.synthetic.main.fragment_detail.view.*
 
-class PlaceAdapter (val clickListener:onClickListener) : RecyclerView.Adapter<PlaceAdapter.MyViewHolder>() {
+class PlaceAdapter(val clickListener: onClickListener) :
+    RecyclerView.Adapter<PlaceAdapter.MyViewHolder>() {
 
     private var placeList = emptyList<POI>()
 
-    class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-       fun initialize(item: POI, action:onClickListener){
-         itemView.setOnClickListener {
-               action.onItemClick(item,adapterPosition)
+
+        fun initialize(item: POI, action: onClickListener) {
+            itemView.setOnClickListener {
+                action.onItemClick(item, adapterPosition)
             }
+
+            itemView.delete.setOnClickListener {
+                action.onItemDelete(item, adapterPosition)
+            }
+
+            itemView.edit.setOnClickListener {
+                action.onItemEdit(item, adapterPosition)
+            }
+
+
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.card_view, parent, false))
+        return MyViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.card_view, parent, false)
+        )
     }
 
     override fun getItemCount(): Int {
@@ -40,15 +55,16 @@ class PlaceAdapter (val clickListener:onClickListener) : RecyclerView.Adapter<Pl
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
         val currentItem = placeList[position]
-        var imgResource:Int
+        var imgResource: Int
 
-        when(position){
-            0->  imgResource = R.drawable.lanikai;
-            1->  imgResource = R.drawable.arizona_memorial;
-            2->  imgResource = R.drawable.waikiki;
-            3->  imgResource = R.drawable.valle;
-            4->  imgResource = R.drawable.haleakala;
-            else -> { imgResource=R.drawable.def
+        when (position) {
+            0 -> imgResource = R.drawable.lanikai;
+            1 -> imgResource = R.drawable.arizona_memorial;
+            2 -> imgResource = R.drawable.waikiki;
+            3 -> imgResource = R.drawable.valle;
+            4 -> imgResource = R.drawable.haleakala;
+            else -> {
+                imgResource = R.drawable.def
             }
         }
 
@@ -56,20 +72,18 @@ class PlaceAdapter (val clickListener:onClickListener) : RecyclerView.Adapter<Pl
         holder.itemView.placeDescription.text = currentItem.description
         holder.itemView.valor.text = currentItem.puntuation.toString()
         holder.itemView.image.setImageResource(imgResource)
-
         holder.initialize(placeList.get(position), clickListener)
 
 
-
     }
 
-    interface onClickListener{
-        fun onItemClick(item:POI, index:Int)
-       // fun onItemDelete(item:POI,index: Int)
-        //fun onItemEdit(item: POI,index: Int)
+    interface onClickListener {
+        fun onItemClick(item: POI, index: Int)
+        fun onItemDelete(item: POI, index: Int)
+        fun onItemEdit(item: POI,index: Int)
     }
 
-    fun setData(places: List<POI>){
+    fun setData(places: List<POI>) {
         this.placeList = places
         notifyDataSetChanged()
     }

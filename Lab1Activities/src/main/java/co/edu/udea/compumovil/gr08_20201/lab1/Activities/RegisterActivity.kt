@@ -26,6 +26,7 @@ class RegisterActivity : AppCompatActivity() {
         registrarseButton.setOnClickListener {
 
             insertDataToDatabase()
+            finish()
 
         }
 

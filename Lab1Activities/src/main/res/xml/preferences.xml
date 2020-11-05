@@ -6,14 +6,22 @@
         >
 
         <SwitchPreferenceCompat
-            android:key="notificar"
+            android:key="switch_preference1"
+            android:title="Autorizar"
             android:summary="@string/activarNotificaciones"/>
 
         <SwitchPreferenceCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:key="sound"
+            android:title="Sonido"
+            android:key="switch_preference2"
             android:summary="@string/activarSonidoNotificaciones" />
 
 </PreferenceCategory>
+
+    <Preference
+        android:key="cerrar"
+        android:title="Cerrar Sesión"
+        />
+
 </PreferenceScreen>

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.lifecycle.ViewModelProvider
 import co.edu.udea.compumovil.gr08_20201.lab1.Entities.POI
 import co.edu.udea.compumovil.gr08_20201.lab1.R
@@ -40,6 +41,14 @@ class AddPlaceFragment : Fragment() {
             transaction.commit()
 
         }
+
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            val transaction= getParentFragmentManager().beginTransaction()
+            val fragment = RecyclerViewFragment()
+            transaction.replace(R.id.mainFragment,fragment)
+            transaction.commit()
+        }
+
 
 
         return view

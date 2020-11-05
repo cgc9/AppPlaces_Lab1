@@ -31,9 +31,9 @@ class POIViewModel(application: Application): AndroidViewModel(application) {
         }
     }
 
-    fun delete(id:Int){
+    fun deletePlace(point:POI){
         viewModelScope.launch(Dispatchers.IO) {
-            repository.deleteById(id)
+            repository.deletePlace(point)
         }
     }
 

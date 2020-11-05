@@ -51,13 +51,10 @@ class DetailFragment : Fragment(){
                 }
                 image.setImageResource(imgResource)
             }else{
-                Log.d("HOLAAA","ñoo")
+                Log.d("Places","No hay lugares")
             }
 
         }
-
-       // Toasty.info(requireContext(),a.toString()).show()
-
 
         return view
     }

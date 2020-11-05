@@ -9,12 +9,12 @@ import java.io.Serializable
 @Parcelize
 @Entity(tableName = "POI_table")
 data class  POI(
-    @PrimaryKey(autoGenerate = true) val id:Int,
-    val placeName: String,
-    val description: String,
-    val generalInfo: String,
-    val location:String,
-    val temperature: String,
-    val puntuation: Double,
+    @PrimaryKey(autoGenerate = true) var id:Int,
+    var placeName: String,
+    var description: String,
+    var generalInfo: String,
+    var location:String,
+    var temperature: String,
+    var puntuation: Double,
     val image: String
 ): Parcelable

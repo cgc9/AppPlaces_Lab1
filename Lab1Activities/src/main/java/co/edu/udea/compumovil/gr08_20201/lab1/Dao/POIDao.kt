@@ -16,6 +16,9 @@ interface POIDao {
         @Update
         suspend fun updatePlace(point:POI);
 
+        @Delete
+        suspend fun deletePlace(point:POI);
+
         @Query("SELECT * FROM POI_table ORDER BY id ASC")
         fun readAllPoints(): LiveData<List<POI>>
 
