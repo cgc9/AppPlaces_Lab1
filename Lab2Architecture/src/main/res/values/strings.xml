@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">LabsCM20201</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="user">Correo</string>
+    <string name="password">Contraseña</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="registarse">Registrarse</string>
+    <string name="actIngreso">Iniciar sesión</string>
+    <string name="name">Nombre</string>
+    <string name="username">Usuario</string>
+    <string name="lastName">Apellido</string>
+    <string name="email">Correo electronico</string>
+    <string name="puntuacion">Puntuación: </string>
+    <string name="puntuacionText">Puntuación</string>
+    <string name="placeName">Nombre de lugar</string>
+    <string name="placeDescrption">Descripción del lugar</string>
+    <string name="generalInfo">Información general</string>
+    <string name="location">Ubicación</string>
+    <string name="temperature">Temperatura</string>
+    <string name="salir">Cerrar sesión</string>
+    <string name="configuracion">Ajustes</string>
+    <string name="notificaciones">Notificaciones</string>
+    <string name="activarNotificaciones">Autorizar notificaciones</string>
+    <string name="activarSonidoNotificaciones">Activar sonido para notificaciones</string>
+    <string name="recyclerTitle">Lugares Turísticos</string>
+    <string name="addPlace">Añadir un nuevo lugar</string>
+    <string name="editar">Editar</string>
+    <string name="delete">Eliminar</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

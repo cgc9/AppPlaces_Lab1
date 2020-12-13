@@ -62,8 +62,6 @@ class AddPlaceFragment : Fragment() {
         val temperature = temperatureEdit.editText?.text.toString()
         val puntuation=(puntuacionEdit.editText?.text.toString()).toDouble()
 
-        // val puntuation = putuationSelect.editText?.text.toString() hacer lueguito
-
 
         if(inputCheck(namePlace ,description,generalInfo, location, temperature,puntuation)){
             var point= POI(0,namePlace ,description,generalInfo, location, temperature,puntuation,"")

@@ -14,14 +14,14 @@ import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {
 
-    private lateinit var  mUserViewModel:UserViewModel
+    private lateinit var mUserViewModel: UserViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
         this.setTitle(R.string.registarse)
 
-        mUserViewModel= ViewModelProvider(this).get(UserViewModel::class.java)
+        mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
         registrarseButton.setOnClickListener {
 
@@ -33,27 +33,34 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun insertDataToDatabase() {
-        val name=nameEditText.editText?.text.toString()
-        val lastName= lastNameEditText.editText?.text.toString()
-        val email= rEmailEditText.editText?.text.toString()
-        val password= rPasswordEditText.editText?.text.toString()
+        val name = nameEditText.editText?.text.toString()
+        val lastName = lastNameEditText.editText?.text.toString()
+        val email = rEmailEditText.editText?.text.toString()
+        val password = rPasswordEditText.editText?.text.toString()
 
-        if(inputCheck(name,lastName, email,password)){
-            var user= User(0,name,lastName, email,password)
+        if (inputCheck(name, lastName, email, password)) {
+            var user = User(0, name, lastName, email, password)
             mUserViewModel.addUser(user)
             Toasty.success(this, "Registro exitoso", Toast.LENGTH_SHORT).show()
-            val intent: Intent = Intent(this, LoginActivity::class.java )
+            val intent: Intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
-        }else{
+        } else {
             Toasty.error(this, "Por favor ingresar todos los campos", Toast.LENGTH_LONG).show()
 
         }
 
     }
 
-    private fun inputCheck (name:String, lastName: String,email:String, password:String) : Boolean {
+    private fun inputCheck(
+        name: String,
+        lastName: String,
+        email: String,
+        password: String
+    ): Boolean {
 
-        return !(TextUtils.isEmpty(name)|| TextUtils.isEmpty(lastName)|| TextUtils.isEmpty(email)|| TextUtils.isEmpty(password))
+        return !(TextUtils.isEmpty(name) || TextUtils.isEmpty(lastName) || TextUtils.isEmpty(email) || TextUtils.isEmpty(
+            password
+        ))
 
     }
 

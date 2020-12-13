@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/notificaciones"
+        >
+
+        <SwitchPreferenceCompat
+            android:key="switch_preference1"
+            android:title="Autorizar"
+            android:summary="@string/activarNotificaciones"/>
+
+        <SwitchPreferenceCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:title="Sonido"
+            android:key="switch_preference2"
+            android:summary="@string/activarSonidoNotificaciones" />
+
+</PreferenceCategory>
+
+    <Preference
+        android:key="cerrar"
+        android:title="Cerrar Sesión"
+        />
+
+</PreferenceScreen>

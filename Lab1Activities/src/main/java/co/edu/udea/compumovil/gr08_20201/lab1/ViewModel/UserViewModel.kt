@@ -25,10 +25,6 @@ class UserViewModel(application: Application): AndroidViewModel(application) {
         count= repository.count
     }
 
-    fun findUserByEmail(email: String): LiveData<User> {
-        return repository.findUserByEmail(email)
-    }
-
    fun findUserBy(email: String): User {
       lateinit var user:User
        viewModelScope.launch(Dispatchers.IO) {
